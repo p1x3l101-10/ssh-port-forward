@@ -3,6 +3,11 @@
 DEST_SET=0
 CONFIG="/ssh/ports.conf"
 
+if [[ ! -f "$CONFIG" ]]; then
+  echo "You must have a config located at $CONFIG"
+  exit 1
+fi
+
 CMD=( "$(grep remote $CONFIG | \
   while IFS=' :' read ignoreremote remote port; do 
     if [[ $DEST_SET -eq 0 ]]; then

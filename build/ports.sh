@@ -11,7 +11,7 @@ fi
 CMD=( "$(grep remote $CONFIG | \
   while IFS=' :' read ignoreremote remote port; do 
     if [[ $DEST_SET -eq 0 ]]; then
-      printf "ssh -p $port $remote"
+      printf "/usr/bin/ssh -p $port $remote"
       DEST_SET=1
     fi
   done)" )

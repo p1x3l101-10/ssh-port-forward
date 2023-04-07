@@ -1,7 +1,8 @@
 FROM alpine:latest
 
-RUN apk add --no-cache bash tinyssh
-RUN mkdir /ssh
+RUN apk update && apk upgrade
+RUN apk add --no-cache bash openssh-client-default
+RUN rm -rf /var/cache/apk/*
 
 COPY ports.sh /entry
 

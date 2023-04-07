@@ -3,3 +3,9 @@ version: '3.8'
 services:
   ssh:
     build: './build'
+    configs:
+      - ports.conf
+
+configs:
+  ports.conf:
+    file: './config/ports.conf'

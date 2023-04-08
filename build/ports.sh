@@ -28,4 +28,11 @@ CMD=(${CMD[@]} "$(grep port $CONFIG | \
 
 echo "Making connection with command:"
 echo "${CMD[@]}"
-exec "${CMD[@]}"
+eval "${CMD[@]}"
+
+# Kill ssh on sigterm
+function cleanup() {
+  killall ssh
+}
+
+trap cleanup SIGTERM

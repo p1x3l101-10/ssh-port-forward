@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   ssh:
-    build: './build'
+    build: 'https://github.com/p1x3l101-10/ssh-port-forward.git#master:build'
     configs:
       - ports.conf
 
